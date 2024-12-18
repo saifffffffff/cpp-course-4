@@ -1,0 +1,111 @@
+#include <iostream>
+#include <string>
+
+
+using namespace std;
+//problem 1
+void PrintName(string name) {
+    cout << "your name is "<< name;
+}
+
+//problem 2
+string ReadName() {
+    
+    string name;
+    
+    getline(cin, name);
+    
+    return name;
+
+}
+//proble 3 my code
+bool IsEven(int num) {
+    if (num % 2 == 0) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+//problem 3 abu_hadhoud's code
+enum enNumberType {Odd = 1, Even = 2};
+int ReadNumber() {
+    int num;
+    cout << "enter number: ";
+    cin >> num;
+    return num;
+}
+enNumberType CheckNumberType(int num) {
+    if (num % 2 == 0) {
+        return Even;
+    }
+    else {
+        return Odd;
+    }
+}
+void printNumberType(enNumberType numberType) {
+    switch (numberType) {
+    case Even:
+        cout << "even";
+        break;
+
+    case Odd:
+        cout << "odd";
+        break;
+
+    }
+}
+//printNumberType(CheckNumberType(ReadNumber()));
+
+
+// problem 4 my code 
+void CheckIfHired(bool HasDriverLicense) {
+    int age = ReadNumber();
+    if (age > 21 && HasDriverLicense) {
+        cout << "Hired";
+    }
+    else {
+        cout << "Rejected";
+    }
+}
+
+//problem 4 abu_hadhoud's code
+
+struct stDriverInfo {
+    int Age;
+    bool HasDriverLicense;
+};
+
+stDriverInfo ReadInfo() {
+    stDriverInfo driver;
+    cout << "Please enter your age : ";
+    cin >> driver.Age;
+    cout << "Do you have driving license: ";
+    cin >> driver.HasDriverLicense;
+    return driver;
+}
+
+bool IsAccepted(stDriverInfo driver) {
+    return (driver.Age > 21 && driver.HasDriverLicense);
+}
+
+void PrintResult(stDriverInfo driver) {
+    if (IsAccepted(driver)) {
+        cout << "Hired";
+    }
+    else {
+        cout << "rejected";
+    }
+}
+
+// problem 5
+/*
+add to the stDriverInfo -> bool HasRecommendation
+add to Read Info cin>>HasRecommendation
+//add to is accepted ((driver.Age > 21 && driver.HasDriverLicense) || driver.HasRecommendation)
+*/
+int main() {
+    
+    return 0;
+}
