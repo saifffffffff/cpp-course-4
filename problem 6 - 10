@@ -1,0 +1,163 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+//problem 6 my code
+
+struct stPerson {
+    string FirstName;
+    string SecondName;
+};
+
+stPerson ReadInfo1() {
+    stPerson person;
+    cout << "enter your first name : ";
+    getline(cin, person.FirstName);
+    cout << "enter second name : ";
+    getline(cin, person.SecondName);
+    return person;
+}
+void PrintResult(stPerson person) {
+    cout << person.FirstName << " " << person.SecondName;
+}
+
+//problem 6 abu hadhoud code 
+
+struct stInfo {
+    string FirstName;
+    string SecondName;
+};
+stInfo ReadInfo2() {
+    stInfo person;
+    cout << "enter your first name : ";
+    getline(cin, person.FirstName);
+    
+    cout << "enter second name : ";
+    getline(cin, person.SecondName);
+    
+    return person;
+}
+string GetFullName(stInfo person) {
+    string FullName = "";
+    FullName = person.FirstName + " " + person.SecondName;
+    return FullName;
+}
+void PrintFullName(string fullName) {
+    cout << fullName;
+}
+
+//problem 7 
+
+int ReadNumber() {
+    int num;
+    cout << "Enter number: ";
+    cin >> num;
+    return num;
+}
+float CalculateHalfNumber(int num) {
+    return float(num) / 2;
+}
+void PrintResult(int num) {
+    cout << CalculateHalfNumber(num);
+}
+
+//problem 8 my code
+
+float ReadMark() {
+    float mark;
+    cout << "enter mark: ";
+    cin >> mark;
+    return mark;
+
+}
+
+bool IsPassed(float mark) {
+
+    return (mark >= 50 ? true : false);
+}
+
+void PrintResult(bool isPassed) {
+    if (isPassed) 
+        cout << "passed";
+    else
+        cout << "failed";
+}
+
+//problem 8 abu-hadhoud's code
+
+enum enPassFail {Pass = 1, Fail = 2};
+float ReadMark2() {
+    float mark;
+    cout << "enter mark: ";
+    cin >> mark;
+    return mark;
+}
+
+enPassFail CheckMark(float mark) {
+    if (mark >= 50) {
+        return Pass;
+    }
+    else {
+        return Fail;
+    }
+}
+
+void PrintResult(float mark) {
+    if (CheckMark(mark) == Pass)
+        cout << "passed";
+    else
+        cout << "failed";
+}
+//PrintResult(ReadMark2());
+
+//problem 9 
+
+struct stThreeNumbers {
+    int num1, num2, num3;
+};
+stThreeNumbers ReadThreeNumbers() {
+    stThreeNumbers numbers;
+    cout << "number 1 : ";
+    cin >> numbers.num1;
+    cout << "number 2 : ";
+    cin >> numbers.num2;
+    cout << "number 3 : ";
+    cin >> numbers.num3;
+    return numbers;
+}
+
+int Sum(stThreeNumbers numbers) {
+    return numbers.num1 + numbers.num2 + numbers.num3;
+}
+void PrintResults(stThreeNumbers numbers) {
+    
+    cout << "sum of these numbers is : " << Sum(numbers);
+}
+
+// problem 9 another way 
+
+void ReadNumbers(int& num1, int& num2, int& num3) {
+    cout << "enter number 1 : ";
+    cin >> num1;
+    cout << "enter number 2 : ";
+    cin >> num2;
+    cout << "enter number 3 : ";
+    cin >> num3;
+}
+
+int SumOf3Numbers(int num1, int num2, int num3) {
+    return num1 + num2 + num3;
+}
+
+//problem 10
+
+float GetAvg(int mark1, int mark2, int mark3) {
+    return (float)SumOf3Numbers(mark1, mark2, mark3) / 3;
+}
+
+int main() {
+    
+    
+    return 0;
+}
