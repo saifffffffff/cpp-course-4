@@ -1,0 +1,153 @@
+#include <iostream>
+
+using namespace std;
+
+
+
+// problem 26 
+
+int ReadNumber() {
+	int num;
+	cout << "number : ";
+	cin >> num;
+	return num;
+}
+void PrintFrom1ToN_UsingFor(int num) {
+	for (int i = 1; i <= num; i++) {
+		cout << i << endl;
+	}
+}
+void PrintFrom1ToN_UsingWhile(int num) {
+	int i = 1;
+	while (i <= num) {
+		cout << i << endl;
+		i++;
+	}
+}
+void PrintFrom1ToN_UsingDoWhile(int num) {
+	int i = 1;
+	do {
+		cout << i<<endl;
+		i++;
+	} while (i <= num);
+}
+
+// problem 27
+
+void PrintFromNTo1_UsingFor(int num) {
+	for (; num >= 1; num--) {
+		cout << num << endl;
+	}
+}
+void PrintFromNTo1_UsingWhile(int num) {
+	
+	while (num >= 1) {
+		cout << num << endl;
+		num--;
+	}
+}
+void PrintFromNTo1_UsingDoWhile(int num) {	
+	do {
+		cout << num << endl;
+		num--;
+	} while (num >= 1);
+}
+
+// problem 28 
+enum enNumType {Odd = 1, Even = 2};
+
+enNumType CheckNumType(int num) {
+	if (num % 2 == 0)
+		return Even;
+	else
+		return Odd;
+}
+
+short PrintSumOfOdds_UsingFor(int num) {
+	short sum = 0;
+	for (int i = 1; i <= num; i++) {
+		if (CheckNumType(i) == Odd)
+			sum += i;
+	}
+	return sum;
+}
+
+short PrintSumOfOdds_UsingWhile(int num) {
+	short sum = 0;
+	int i = 1;
+	while (i <= num) {
+		if (CheckNumType(i) == Odd)
+			sum += i;
+		i++;
+	}
+	return sum;
+}
+
+short PrintSumOfOdds_UsingDoWhile(int num) {
+	short sum = 0;
+	int i = 1;
+	do {
+		if (CheckNumType(i) == Odd)
+			sum += i;
+		i++;
+	} while (i <= num);
+	return sum;
+}
+// problem 29
+short PrintSumOfEvens_UsingFor(int num) {
+	short sum = 0;
+	for (int i = 1; i <= num; i++) {
+		if (CheckNumType(i) == Even)
+			sum += i;
+	}
+	return sum;
+}
+
+short PrintSumOfEvens_UsingWhile(int num) {
+	short sum = 0;
+	int i = 1;
+	while (i <= num) {
+		if (CheckNumType(i) == Even)
+			sum += i;
+		i++;
+	}
+	return sum;
+}
+
+short PrintSumOfEvens_UsingDoWhile(int num) {
+	short sum = 0;
+	int i = 1;
+	do {
+		if (CheckNumType(i) == Even)
+			sum += i;
+		i++;
+	} while (i <= num);
+	return sum;
+}
+
+// problem 30
+
+short ReadPositiveNum(string message) {
+	int num;
+	while (true) {
+		cout << message;
+		cin >> num;
+		if (num > 0)
+			return num;
+
+	}
+}
+int Factorial(short num) {
+	
+	int counter = 1;
+	for (int i = 1; i <= num; i++) {
+		counter *= i;
+	}
+	return counter;
+}
+
+int main() {
+	
+	cout << Factorial(ReadPositiveNum("enter N : "));
+	return 0;
+}
