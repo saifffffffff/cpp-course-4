@@ -1,0 +1,131 @@
+#include <iostream>
+
+using namespace std;
+//problem 16
+
+float CalRecAreaThroughDiaginal(float a, float d) {
+	float Area = a * sqrt(pow(d, 2) - pow(a, 2));
+	return Area;
+}
+// problem 17
+
+float CalTriangleArea(float b, float h) {
+	float Area = 0.5 * b * h;
+	return Area;
+}
+
+//problem 18
+
+float CalCircleArea(float r) {
+	const float PI = 3.141592653589793238;
+	float Area = PI * pow(r, 2);
+	return Area;
+
+}
+
+// problem 19 
+
+float CalCircleAreaFromDiagonal(float D) {
+	const float PI = 3.141592653589793238;
+	float Area = (PI * pow(D, 2)) / 4;
+	return Area;
+}
+
+// problem 20
+
+float CircleAreaInscribedInSquare(float A) {
+	const float PI = 3.141592653589793238;
+	
+	float Area = (PI * pow(A, 2)) / 4;
+	
+	return Area;
+}
+
+// problem 21
+
+float CircleAreaByCircumference(float c) {
+	const float PI = 3.141592653589793238;
+	float Area = pow(c, 2) / (4 * PI);
+	return Area; 
+}
+
+// problem 22
+
+float CircleAreaByITriangle( float a , float b) {
+	
+	const float PI = 3.141592653589793238;
+	float Area = PI * (pow(b, 2)/4) * ((2 * a - b) / (2 * a + b));
+	return Area;
+
+}
+
+// problem 23 
+
+float CircleAreaByTriangle(float a, float b, float c ) {
+	const float PI = 3.141592653589793238;
+	float p = (a + b + c) / 2;
+	float x = ((a * b * c) / (4 * sqrt(p * (p - a) * (p - b) * (p - c))));
+	float Area = PI * pow(x,2);
+	return Area;
+}
+
+// problem 24 my code 
+
+short ReadAge() {
+	short age;
+	cout << "Enter your age : ";
+	cin >> age;
+	return age;
+}
+
+bool CheckAge(short age) {
+	if (age >= 18 && age <= 45)
+		return true;
+	else
+		return false;
+	
+}
+
+void PrintResult(short age) {
+	if (CheckAge(age)) 
+		cout << "accepted";
+	else
+		cout << "not accepted";
+}
+
+// problem 24 abu-hadhoud's code 
+
+//read age is the same
+
+bool ValidateNumberInRange(int from, int to, int num) {
+	
+	return (num >= from && num <= to);
+
+}
+void PrintResult1(short age) {
+	
+	if (ValidateNumberInRange(18, 45, age))
+		cout << "accepted";
+
+	else
+		cout << "fail";
+}
+
+// problem 25
+
+short ReadUntilAgeBetween(int from, int to) {
+	short age;
+	do {
+		age = ReadAge();
+	} while (!ValidateNumberInRange(from, to, age));
+
+	return age;
+
+}
+
+int main() {
+	
+	
+
+	return 0;
+}
