@@ -1,0 +1,96 @@
+#include <iostream>
+
+using namespace std;
+
+//problem 11
+
+enum enPassFail {Pass = 1, Fail = 2};
+
+void ReadMarks(int& mark1, int& mark2, int& mark3) {
+	cout << "mark 1 : ";
+	cin >> mark1;
+	cout << "mark 2 : ";
+	cin >> mark2;
+	cout << "mark 3 : ";
+	cin >> mark3;
+}
+int SumOf3Numbers(int mark1, int mark2, int mark3) {
+	return mark1 + mark2 + mark3;
+}
+float CalculateAvg(int mark1, int mark2, int mark3) {
+	return (float)SumOf3Numbers(mark1, mark2, mark3) / 3;
+}
+enPassFail CheckMarks(float avg){
+	if (avg >= 50)
+		return Pass;
+	else
+		return Fail;
+}
+void PrintResult(float avg) {
+	if (CheckMarks(avg) == Pass) {
+		cout << "pass";
+	}
+	else
+		cout << "fail";
+}
+
+
+// problem 12 
+
+void Read2Numbers(int &num1, int &num2) {
+	cout << "number 1 : ";
+	cin >> num1;
+	cout << "number 2 : ";
+	cin >> num2;
+}
+int MaxOf2Numbers(int num1, int num2) {
+	return (num1 > num2 ? num1 : num2);
+}
+void PrintMaxNumber(int num1, int num2) {
+	cout << "max number is " << MaxOf2Numbers(num1, num2);
+}
+//problem 13
+void Read3Numbers(int& num1, int& num2, int &num3) {
+	cout << "number 1 : ";
+	cin >> num1;
+	cout << "number 2 : ";
+	cin >> num2;
+	cout << "number 3 : ";
+	cin >> num3;
+}
+int MaxOf3Numbers(int num1, int num2, int num3) {
+	if (num1 > num2) {
+		if (num1 > num3)
+			return num1;
+		else
+			return num3;
+	}
+	else {
+		if (num1 > num3)
+			return num1;
+		else
+			return num3;
+	}
+}
+void PrintMaxNumber(int Max) {
+	cout << "max number is " << Max;
+}
+
+// problem 14
+
+void swap(int& num1, int& num2) {
+	int tmp = num1;
+	num1 = num2;
+	num2 = tmp;
+}
+
+// problem 15 
+
+float CalculateRectangleArea(float len, float wid) {
+	return len * wid;
+}
+int main() {
+	
+
+	return 0;
+}
