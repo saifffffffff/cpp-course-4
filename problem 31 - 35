@@ -1,0 +1,196 @@
+#include <iostream>
+using namespace std;
+
+//problem 31
+int ReadNum() {
+	int num;
+	cout << "Enter number : ";
+	cin >> num;
+	return num;
+}
+
+void PowOfNumber3_2_1(int num) {
+	for (int i = 2; i <= 4; i++)
+		cout << pow(num, i) << endl;
+}
+
+//problem 32 power1 written by me and power2 written by abu-hadhoud 
+
+int Power1(int base, int exponent) {
+	int num = base;
+	for (int i = 1; i < exponent; i++) {
+		num *= base;
+	}
+	return num;
+}
+int ReadPower() {
+	int power;
+	cout << "Enter the power: ";
+	cin >> power;
+	return power;
+}
+int Power2(int num, int M) {
+
+	if (M == 0)
+		return 1;
+	else
+	{
+		int P = 1;
+		for (int i = 1; i <= M; i++) {
+			P *= num;
+		}
+		return P;
+	}
+}
+
+
+// problem 33
+
+bool ValidateNumberInRange(int from, int to, int num) {
+
+	return (num >= from && num <= to);
+
+}
+int ReadGrade() {
+	int Grade;
+	do {
+		cout << "Enter grade : ";
+		cin >> Grade;
+	} while (!ValidateNumberInRange(0, 100, Grade));
+	
+	return Grade;
+}
+char CheckGrade(int Grade) {
+	if (Grade >= 90)
+		return 'A';
+	else if (Grade >= 80)
+		return 'B';
+	else if (Grade >= 70)
+		return 'C';
+	else if (Grade >= 60)
+		return 'D';
+	else if (Grade >= 50)
+		return 'E';
+	else
+		return 'F';
+}
+
+
+// problem 34 my code 
+
+int ReadTotalSales() {
+	int TotalSales;
+	cout << "Enter total sales : ";
+	cin >> TotalSales;
+	return TotalSales;
+}
+
+float CalculateCommission(int TotalSales) {
+	
+	float percentage = 0;
+	
+	if (TotalSales >= 1000000)
+		percentage = 0.01;
+	
+
+	else if (TotalSales >= 500000)
+		percentage = 0.02;
+
+	else if (TotalSales >= 100000)
+		percentage = 0.03;
+
+	else if (TotalSales >= 50000)
+		percentage = 0.05;
+	
+	float commission = percentage * TotalSales;
+	return commission;
+
+}
+	
+// problem 34 abu Hadhoud's code 
+
+float GetCommissionPercentage(int TotalSales){
+	float percentage = 0;
+
+	if (TotalSales >= 1000000)
+		percentage = 0.01;
+
+
+	else if (TotalSales >= 500000)
+		percentage = 0.02;
+
+	else if (TotalSales >= 100000)
+		percentage = 0.03;
+
+	else if (TotalSales >= 50000)
+		percentage = 0.05;
+	return percentage;
+}
+
+float CalculateCommission1(int TotalSales) {
+
+	return  GetCommissionPercentage(TotalSales) * TotalSales;
+
+}
+
+
+
+// problem 35 
+
+
+void ReadMoney(int &pennies, int &nickels, int& dimes, int& qurters, int& dollars ) {
+	cout << " Enter pennies : ";
+	cin >> pennies;
+	cout << " Enter nickels : ";
+	cin >> nickels;
+	cout << " Enter dimes : ";
+	cin >> dimes;
+	cout << " Enter quarters : ";
+	cin >> qurters;
+	cout << " Enter dollars : ";
+	cin >> dollars;
+}
+
+int CalTotalPennies(int pennies, int nickels, int dimes, int qurters, int dollars) {
+	pennies += nickels * 5 + dimes * 10 + qurters * 25 + dollars * 100;
+	return pennies;
+}
+ 
+float CalTotalDollars(float pennies, float nickels, float dimes, float qurters, float dollars) {
+	return dollars + pennies * 0.01 + nickels * 0.05 + dimes * 0.1 + qurters * 0.25;
+}
+
+// problem 35 abu-hadhoud's code 
+
+struct stPiggyBankContent  {
+	int pennies, nickels, dimes, qurters, dollars;
+};
+
+stPiggyBankContent ReadPiggyBankContent() {
+	stPiggyBankContent piggyBank;
+	cout << " Enter pennies : ";
+	cin >> piggyBank.pennies;
+	cout << " Enter nickels : ";
+	cin >> piggyBank.nickels;
+	cout << " Enter dimes : ";
+	cin >> piggyBank.dimes;
+	cout << " Enter quarters : ";
+	cin >> piggyBank.qurters;
+	cout << " Enter dollars : ";
+	cin >> piggyBank.dollars;
+	return piggyBank;
+}
+
+int CalculateTotalPennies(stPiggyBankContent piggyBank) {
+	return piggyBank.pennies + piggyBank.nickels * 5 + piggyBank.qurters * 25 + piggyBank.dimes * 10 + piggyBank.dollars * 100;
+}
+
+// if you divided CalculateTotalPennies / 100 it will give you a result 
+
+
+int main() {
+
+	
+	
+	return 0;
+}
