@@ -1,0 +1,105 @@
+#include <iostream>
+using namespace std;
+
+// problem 36 
+
+enum enOperations { add = '+', subtract = '-', multiply = '*', divide = '/' };
+
+enOperations ReadOperation() {
+	char operation;
+	cout << "Enter operation : ";
+	cin >> operation;
+	return (enOperations)operation;
+}
+
+float ReadNumber(string message) {
+	float number;
+	cout << message;
+	cin >> number;
+	return number;
+}
+
+float Calculator(enOperations operation, float num1, float num2) {
+
+	if (operation == add) 
+		return num1 + num2;
+	if (operation == subtract)
+		return num1 - num2;
+	if (operation == multiply)
+		return num1 * num2;
+	if (operation == divide)
+		return num1 / num2;
+
+}
+
+
+// problem 37 
+
+int SumNumbers() {
+	int sum = 0, number;
+	while(true){
+		number = ReadNumber("Enter number : ");
+		if (number == -99)
+			return sum;
+		sum += number;
+	}
+}
+
+//problem 38 
+enum enPrimeNotPrime {Prime = 1, NotPrime = 2};
+int ReadPositiveNumber(string message) {
+	int num;
+	while (true) {
+		cout << message;
+		cin >> num;
+		if (num > 0)
+			return num;
+
+	}
+}
+enPrimeNotPrime CheckPrimeNumber(int num) {
+	for (int i = 2; i <= num / 2; i++)
+		if (num % i == 0)
+			return NotPrime;
+	return Prime;
+}
+void PrintNumberType(int num) {
+	switch (CheckPrimeNumber(num)) {
+		case Prime:
+			cout << "Prime";
+			break;
+		case NotPrime:
+			cout << "Not Prime";
+	}
+}
+
+// problem 39 
+
+float CalculatePayRemainder(float TotalBill, float CashPaid) {
+	return CashPaid - TotalBill;
+}
+
+// problem 40 
+
+float CalculateCharges(float billValue, float charges , float salesTax) {
+
+	billValue += billValue * (charges / 100);
+	billValue += billValue * (salesTax / 100);
+	// or 
+	/*
+	billValue = billValue * (charges)/10
+	billValue = billValue * (salesTax)/10
+	*/
+	return billValue;
+
+
+}
+
+
+
+
+
+int main() {
+	
+	return 0;
+}
