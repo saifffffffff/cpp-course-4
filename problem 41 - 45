@@ -1,0 +1,187 @@
+#include <iostream>
+using namespace std;
+
+float ReadNumber(string message) {
+	float number;
+	cout << message;
+	cin >> number;
+	return number;
+}
+int ReadPositiveNumber(string message) {
+	int num;
+	while (true) {
+		cout << message;
+		cin >> num;
+		if (num > 0)
+			return num;
+
+	}
+}
+int ReadNumberInRange(int from, int to, string message) {
+	int num;
+	do {
+		cout << message;
+		cin >> num;
+	} while (num < from || num > to);
+	return num;
+}
+//problem 41
+
+
+
+float ConvertHoursToDays(float hours) {
+	return hours / 24;
+}
+
+float ConvertDaysToWeeks(float days) {
+	return days / 7;
+}
+
+// problem 42 my code 
+
+
+float ConvertMinToSec(int min) {
+	return (float)min * 60;
+}
+float ConvertHoursToMin(float  hours) {
+	return (float)hours * 60;
+}
+
+float ConvertDaysToHours(float  days) {
+	return (float)days * 24;
+}
+/*
+int main() {
+	float days = ReadPositiveNumber("Days : ");
+	float hours = ReadPositiveNumber("Hours : ");
+	float minutes = ReadPositiveNumber("Minutes : ");
+	float seconds = ReadPositiveNumber("seconds : ");
+
+	seconds += ConvertMinToSec(ConvertHoursToMin(hours)) + ConvertMinToSec(minutes) + ConvertMinToSec(ConvertHoursToMin(ConvertDaysToHours(days)));
+	cout << seconds;
+
+	return 0;
+}
+
+*/
+
+// problem 42 abu had's code 
+
+struct stTaskDuration {
+	float secs, mins, hours, days;
+};
+
+stTaskDuration ReadTaskDuration() {
+	stTaskDuration TD;
+	TD.secs = ReadPositiveNumber("seconds : ");
+	TD.mins = ReadPositiveNumber("minutes : ");
+	TD.hours = ReadPositiveNumber("hours : ");
+	TD.days = ReadPositiveNumber("days : ");
+	return TD;
+}
+
+float CalculateTaskDurationInSec(stTaskDuration TD) {
+	return TD.secs + TD.mins * 60 + TD.hours * 60 * 60 + TD.days * 24 *60 * 60;
+}
+
+// 
+
+// problem 43 
+
+// sec - > days : hours : min : sec 
+
+struct stClock {
+	float days, hours, mins, secs;
+};
+
+void CalculateClock() {
+	
+	stClock clock;
+	clock.secs = ReadPositiveNumber("seconds : ");
+	clock.days = clock.secs / 60 / 60 / 24;// 1.5
+	clock.hours = (clock.days - (int)clock.days) * 24;
+	clock.mins = (clock.hours - (int)clock.hours) * 60;
+	clock.secs = (clock.mins - (int)clock.mins) * 60;
+	cout << floor(clock.days) << " : " << floor(clock.hours) << " : " << floor(clock.mins) << " : " << floor(clock.secs);
+}
+
+// problem 43 abu had's code 
+
+// sec - > days : hours : min : sec 
+
+
+
+stTaskDuration CalculateClock1(int TotalSec) {
+
+	stTaskDuration clock;
+	
+	const int SecPerDay = 24 * 60 * 60;
+	const int SecPerHour = 60 * 60;
+	const int SecPerMin = 60;
+	
+	int RemainderSec;
+	
+	clock.days = floor(TotalSec / SecPerDay);
+	
+	RemainderSec = TotalSec % SecPerDay; // remaining seconds
+	
+	clock.hours = floor(RemainderSec / SecPerHour);
+	RemainderSec = RemainderSec % SecPerHour ;
+	
+	clock.mins = floor(RemainderSec / SecPerMin);
+	RemainderSec = RemainderSec % SecPerMin;
+	
+	clock.secs = RemainderSec;
+	return clock;
+	;
+}
+void PrintTaskDuration(stTaskDuration TD) {
+	cout << floor(TD.days) << " : " << floor(TD.hours) << " : " << floor(TD.mins) << " : " << floor(TD.secs); 
+}
+
+
+// problem 44
+
+enum enWeekDay { sunday = 1, monday = 2, tuesday = 3, wednesday = 4, thursday = 5, friday = 6, saturday = 7 };
+
+enWeekDay CheckDay(int DayNumber) {
+	return (enWeekDay)DayNumber;
+ }
+string GetDayOfWeek(int day ) {
+	switch (CheckDay(day)) {
+	case sunday :
+		return "sunday";
+		
+	case monday:
+		  return "monday";
+		
+	case tuesday:
+		return "tuesday";
+		
+	case wednesday:
+		return  "wednesday";
+		
+	case thursday:
+		return  "thursday";
+	case friday:
+		return "friday";
+		
+	case saturday:
+		return "saturday";
+		
+	default:
+		return "wrong day";
+	}
+}
+enWeekDay ReadWeekDay() {
+	return (enWeekDay) ReadNumberInRange(1, 7, "Enter day number : ");
+}
+
+// proble 45 the same of 44
+
+int main() {
+	
+	cout << GetDayOfWeek(ReadWeekDay());
+	
+	return 0;
+}
