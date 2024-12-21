@@ -1,0 +1,124 @@
+#include <iostream>
+using namespace std;
+
+float ReadNumber(string message) {
+	float number;
+	cout << message;
+	cin >> number;
+	return number;
+}
+
+int ReadPositiveNumber(string message) {
+	int num;
+	while (true) {
+		cout << message;
+		cin >> num;
+		if (num > 0)
+			return num;
+
+	}
+}
+
+int ReadNumberInRange(int from, int to, string message) {
+	int num;
+	do {
+		cout << message;
+		cin >> num;
+	} while (num < from || num > to);
+	return num;
+}
+
+// problem 46 
+
+void PrintLetters() {
+	for (int i = 65; i <= 90; i++)
+		cout << char(i) << endl;
+}
+
+// problem 47 
+
+float LoanInstallmentMonths(float LoanAmount , float MonthlyPayment) {
+	return LoanAmount / MonthlyPayment;
+}
+
+//problem 48 
+
+float MonthlyLoanInstallment(float months, float LoanAmount) {
+	return LoanAmount / months;
+}
+
+
+// problem 49 
+
+
+string ReadPinCode() {
+	string pinCode;
+	cout << "Enter pin code : ";
+	cin >> pinCode;
+	return pinCode;
+	
+}
+bool login() {
+	string pinCode;
+	do {
+		
+		pinCode = ReadPinCode();
+		
+		if (pinCode == "1234")
+			return true;
+		else {
+			cout << "wrong pin code \n";
+			system("color 3F");
+		}
+
+	} while (pinCode != "1234");
+}
+
+
+/*
+
+int main() {
+
+	if (login()) {
+		system("color 2F");
+		cout << "you balance is " << 7500;
+	}
+	return 0;
+}
+
+*/
+
+//problem 50 
+
+bool login1() {
+	string pinCode;
+	short counter = 3;
+	do {
+		counter--;
+		pinCode = ReadPinCode();
+
+		if (pinCode == "1234")
+			return true;
+		else {
+			cout << "wrong pin code\n" << counter << " attemps.\n";
+			system("color 3F");
+		}
+
+	} while (counter != 0);
+	return false;
+}
+
+
+
+
+int main() {
+	
+	if (login1()) {
+		system("color 2F");
+		cout << "you balance is " << 7500;
+	}
+	else {
+		cout << "your card is blocked";
+	}
+	return 0;
+}
